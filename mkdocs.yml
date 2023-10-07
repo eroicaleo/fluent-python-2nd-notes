@@ -1,0 +1,18 @@
+site_name: Coursera Meta BE Notes
+theme: readthedocs
+
+nav:
+  - Home: index.md
+  - Chapter 03 Dictionaries and Sets: ch03.md
+  - Chapter -1 Misc Notes: ch-1.md
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math:
+        enable_dollar_delimiter: True
+
+repo_name: Github
+repo_url: https://github.com/eroicaleo/fluent-python-2nd-notes
+edit_uri: 'blob/main/docs/'
