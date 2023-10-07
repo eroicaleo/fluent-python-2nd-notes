@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter -1 Misc Notes - Coursera Meta BE Notes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter -1 Misc Notes";
+        var mkdocs_page_input_path = "ch-1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Coursera Meta BE Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ch03/">Chapter 03 Dictionaries and Sets</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter -1 Misc Notes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-run-doctest">How to run doctest</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#further-reading">Further Reading</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chapter-1">Chapter 1</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cool-staff-i-learned">Cool Staff I Learned</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chapter-1_1">Chapter 1</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chapter-2">Chapter 2</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#typo">Typo</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chapter-3">Chapter 3</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Coursera Meta BE Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Chapter -1 Misc Notes</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/eroicaleo/fluent-python-2nd-notes/blob/main/docs/ch-1.md" class="icon icon-github"> Edit on Github</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="chapter-1-misc-notes">Chapter -1 Misc Notes</h1>
+<ul>
+<li><a href="https://github.com/fluentpython/example-code-2e">Github link</a></li>
+<li><a href="https://pythontutor.com">pythontutor</a> to visualize the program.</li>
+</ul>
+<h2 id="how-to-run-doctest">How to run doctest</h2>
+<ul>
+<li>Example 1:</li>
+</ul>
+<pre><code class="language-python">&quot;&quot;&quot;
+vector2d.py: a simplistic class demonstrating some special methods
+It is simplistic for didactic reasons. It lacks proper error handling,
+especially in the ``__add__`` and ``__mul__`` methods.
+This example is greatly expanded later in the book.
+
+Addition::
+
+    &gt;&gt;&gt; v1 = Vector(2, 4)
+    &gt;&gt;&gt; v2 = Vector(2, 1)
+    &gt;&gt;&gt; v1 + v2
+    Vector(4, 5)
+
+&quot;&quot;&quot;
+
+class Vector:
+    # ...
+
+if __name__ == &quot;__main__&quot;:
+    import doctest
+    doctest.testmod()
+</code></pre>
+<pre><code class="language-shell"> python vector.py -v
+</code></pre>
+<ul>
+<li>Example 2</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; from vector import Vector
+&gt;&gt;&gt; v1 = Vector(2, 4)
+&gt;&gt;&gt; v2 = Vector(2, 1)
+&gt;&gt;&gt; v1 + v2
+Vector(4, 5)
+&gt;&gt;&gt; v = Vector(3, 4)
+&gt;&gt;&gt; abs(v)
+5.0
+&gt;&gt;&gt; v * 3
+Vector(9, 12)
+&gt;&gt;&gt; abs(v * 3)
+15.0
+</code></pre>
+<pre><code class="language-shell">python -m doctest -v vector.doctest
+</code></pre>
+<ul>
+<li>
+<p>How to add <code>...</code> if the output is too long:</p>
+</li>
+<li>
+<p>Reference from <a href="https://stackoverflow.com/questions/17092215/how-enable-ellipsis-when-calling-python-doctest">stackoverflow</a>.</p>
+</li>
+</ul>
+<p><code>python
+  def foo():
+      """
+      &gt;&gt;&gt; foo() # doctest: +ELLIPSIS
+      hello ...
+      """
+      print("hello world")</code></p>
+<p><code>python -m doctest foo.py</code></p>
+<ul>
+<li>If we want to use <code>...</code> for all the tests</li>
+</ul>
+<p>```python
+  def foo():
+      """
+      &gt;&gt;&gt; foo()
+      hello ...
+      """
+      print("hello world")</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+      import doctest
+      doctest.testmod(verbose=True, optionflags=doctest.ELLIPSIS)
+  ```</p>
+<p><code>shell
+  python foo.py -v</code></p>
+<ul>
+<li>
+<p>How to catch exception?</p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/12592/can-you-check-that-an-exception-is-thrown-with-doctest-in-python">Stackover anwser</a>.</p>
+</li>
+</ul>
+<p>```python</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c # doctest: +IGNORE_EXCEPTION_DETAIL
+  Traceback (most recent call last):
+  NameError: name 'c' is not defined
+  ```</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<ul>
+<li>How to do multiline in output when it's too long: adding <code>+NORMALIZE_WHITESPACE</code></li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; tshirts = [(color, size) for color in colors
+...                          for size in sizes ]
+&gt;&gt;&gt; tshirts   # doctest: +NORMALIZE_WHITESPACE
+[('black', 'S'), ('black', 'M'), ('black', 'L'), ('white', 'S'),
+('white', 'M'), ('white', 'L')]
+</code></pre>
+<ul>
+<li>How to use verbose output</li>
+</ul>
+<pre><code class="language-python">doctest.testmod(verbose=True)
+</code></pre>
+<h2 id="further-reading">Further Reading</h2>
+<h3 id="chapter-1">Chapter 1</h3>
+<ul>
+<li><a href="https://docs.python.org/3/reference/datamodel.html">Data model chapter</a>.</li>
+<li><a href="https://www.oreilly.com/library/view/python-in-a/9781491913833/">Python in a nutshell</a>.</li>
+<li>Python Essential Reference</li>
+<li>Python Cook‐ book, 3rd ed.</li>
+<li>The Art of the Metaobject Protocol (Author's favorite)</li>
+</ul>
+<h2 id="cool-staff-i-learned">Cool Staff I Learned</h2>
+<h3 id="chapter-1_1">Chapter 1</h3>
+<ul>
+<li>The use of <code>doctest</code></li>
+</ul>
+<h3 id="chapter-2">Chapter 2</h3>
+<ul>
+<li><code>timeit</code> module</li>
+<li><code>hash</code> built-in</li>
+<li><code>dis.dis</code> to check the byte code</li>
+</ul>
+<h2 id="typo">Typo</h2>
+<h3 id="chapter-3">Chapter 3</h3>
+<ul>
+<li>pg 82</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ch03/" class="btn btn-neutral float-left" title="Chapter 03 Dictionaries and Sets"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ch03/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

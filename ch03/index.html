@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Chapter 03 Dictionaries and Sets - Coursera Meta BE Notes</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Chapter 03 Dictionaries and Sets";
+        var mkdocs_page_input_path = "ch03.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Coursera Meta BE Notes
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Chapter 03 Dictionaries and Sets</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#modern-dict-syntax">Modern dict Syntax</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#dict-comprehensions">dict Comprehensions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unpacking-mappings">Unpacking Mappings</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#merging-mappings-with">Merging Mappings with |</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#pattern-matching-with-mappings">Pattern Matching with Mappings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#standard-api-of-mapping-types">Standard API of Mapping Types</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-is-hashable">What Is Hashable</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ch-1/">Chapter -1 Misc Notes</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Coursera Meta BE Notes</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Chapter 03 Dictionaries and Sets</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/eroicaleo/fluent-python-2nd-notes/blob/main/docs/ch03.md" class="icon icon-github"> Edit on Github</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="chapter-3-dictionaries-and-sets">Chapter 3 Dictionaries and Sets</h1>
+<ul>
+<li>Python dicts are highly optimized—and continue to get improvements. Hash tables are the engines behind Python’s high-performance dicts.</li>
+</ul>
+<h2 id="modern-dict-syntax">Modern dict Syntax</h2>
+<h3 id="dict-comprehensions">dict Comprehensions</h3>
+<ul>
+<li>Run this example:</li>
+</ul>
+<pre><code>python dict_comp.py
+</code></pre>
+<ul>
+<li>A <code>dictcomp</code> (dict comprehension) builds a dict instance by taking <code>key:value</code> pairs from any iterable.</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; dial_codes = [
+...     (880, 'Bangladesh'),
+...     (55, 'Brazil'),
+...     (86, 'China'),
+...     (91, 'India'),
+...     (62, 'Indonesia'),
+...     (81, 'Japan'),
+...     (234, 'Nigeria'),
+...     (92, 'Pakistan'),
+...     (7, 'Russia'),
+...     (1, 'United States'),
+... ]
+&gt;&gt;&gt; country_dial = {country: code for code, country in dial_codes}
+&gt;&gt;&gt; {code: country.upper()
+...     for country, code in sorted(country_dial.items())
+...     if code &lt; 70}
+
+</code></pre>
+<h3 id="unpacking-mappings">Unpacking Mappings</h3>
+<ul>
+<li>Run this example:</li>
+</ul>
+<pre><code class="language-shell">python unpacking_mappings.py
+</code></pre>
+<ul>
+<li>First, we can apply <code>**</code> to more than one argument in a function call.<ul>
+<li>This works when keys are all strings and unique across all arguments (because duplicate keyword arguments are forbidden):</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; def dump(**kwargs):
+...     return kwargs
+...
+&gt;&gt;&gt; dump(**{'x': 1}, y=2, **{'z': 3})
+{'x': 1, 'y': 2, 'z': 3}
+</code></pre>
+<ul>
+<li>Second, <code>**</code> can be used inside a dict literal—also multiple times and duplicate keys are allowed. Later occurrences overwrite previous ones.</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; {'a': 0, **{'x': 1}, 'y': 2, **{'z': 3, 'x': 4}}
+{'a': 0, 'x': 4, 'y': 2, 'z': 3}
+</code></pre>
+<h3 id="merging-mappings-with">Merging Mappings with <code>|</code></h3>
+<pre><code>python merging_mappings.py
+</code></pre>
+<ul>
+<li>Python 3.9 supports using <code>|</code> and <code>|=</code> to merge mappings.</li>
+</ul>
+<pre><code class="language-python">'''
+&gt;&gt;&gt; d1 = {'a': 1, 'b': 3}
+&gt;&gt;&gt; d2 = {'a': 2, 'b': 4, 'c': 6}
+&gt;&gt;&gt; d1|d2
+{'a': 2, 'b': 4, 'c': 6}
+&gt;&gt;&gt; d1
+{'a': 1, 'b': 3}
+&gt;&gt;&gt; d1|=d2
+&gt;&gt;&gt; d1
+{'a': 2, 'b': 4, 'c': 6}
+'''
+</code></pre>
+<h2 id="pattern-matching-with-mappings">Pattern Matching with Mappings</h2>
+<ul>
+<li>Run this example:</li>
+</ul>
+<pre><code>python creator.py
+</code></pre>
+<pre><code class="language-python">def get_creators(record: dict) -&gt; list:
+    match record:
+        case {'type': 'book', 'api': 2, 'authors': [*names]}: # 1
+            return names
+        case {'type': 'book', 'api': 1, 'author': name}:
+            return name
+        case {'type': 'book'}:
+            raise ValueError(f&quot;Invalid 'book' record: {record!r}&quot;)
+        case {'type': 'movie', 'director': name}:
+            return [name]
+        case _:
+            raise ValueError(f'Invalid record: {record!r}')
+</code></pre>
+<ul>
+<li>1 Match any mapping with <code>'type': 'book'</code>, <code>'api': 2</code>, and an <code>'authors'</code> key mapped to a sequence. Return the items in the sequence, as a <code>new</code> list.</li>
+<li>
+<p>The above shows some useful practices for handling semi-structured data such as JSON records:</p>
+<ul>
+<li>Include a field describing the kind of record (e.g., <code>'type': 'movie'</code>)</li>
+<li>Include a field identifying the schema version (e.g., <code>'api': 2'</code>) to allow for future evolution of public APIs.</li>
+<li>Have case clauses to handle invalid records of a specific type (e.g., <code>'book'</code>), as well as a catch-all</li>
+</ul>
+</li>
+<li>
+<p>Here are the testing:</p>
+</li>
+</ul>
+<pre><code class="language-python">'''
+&gt;&gt;&gt; b1 = dict(api=1, author='Douglas Hofstadter',
+... type='book', title='Gödel, Escher, Bach')
+&gt;&gt;&gt; get_creators(b1)
+'Douglas Hofstadter'
+&gt;&gt;&gt; from collections import OrderedDict
+&gt;&gt;&gt; b2 = OrderedDict(api=2, type='book',
+...         title='Python in a Nutshell',
+...         authors='Martelli Ravenscroft Holden'.split())
+&gt;&gt;&gt; get_creators(b2)
+['Martelli', 'Ravenscroft', 'Holden']
+&gt;&gt;&gt; get_creators({'type': 'book', 'pages': 770}) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+ValueError: Invalid 'book' record: {'type': 'book', 'pages': 770}
+&gt;&gt;&gt; get_creators('Spam, spam, spam')
+Traceback (most recent call last):
+ValueError: Invalid record: 'Spam, spam, spam'
+'''
+</code></pre>
+<ul>
+<li>Note that the order of the keys in the patterns is irrelevant, even if the subject is an <code>OrderedDict</code> as <code>b2</code>.</li>
+<li>If we want to capture the extra key value pairs, we can use <code>**extra</code>. It must be the last in the pattern and <code>**_</code> is forbidden.</li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; food = dict(category='ice cream', flavor='vanilla', cost=199)
+&gt;&gt;&gt; match food:
+...     case {'category': 'ice cream', **details}:
+...         print(f'Ice cream details: {details}')
+Ice cream details: {'flavor': 'vanilla', 'cost': 199}
+</code></pre>
+<h2 id="standard-api-of-mapping-types">Standard API of Mapping Types</h2>
+<ul>
+<li>The <code>collections.abc</code> module provides the Mapping and MutableMapping ABCs describing the interfaces of <code>dict</code> and similar types.</li>
+</ul>
+<p><img alt="3-1" src="../images/0301MappingABC.png" /></p>
+<ul>
+<li>See the following example:</li>
+</ul>
+<pre><code class="language-python"># python mapping-api.py
+&gt;&gt;&gt; my_dict = {}
+&gt;&gt;&gt; isinstance(my_dict, abc.Mapping)
+True
+&gt;&gt;&gt; isinstance(my_dict, abc.MutableMapping)
+True
+</code></pre>
+<ul>
+<li>To implement a custom mapping, it’s easier to extend <code>collections.UserDict</code>, or to wrap a <code>dict</code> by composition, instead of subclassing these ABCs.</li>
+<li>The <code>collections.UserDict</code> class and all concrete mapping classes in the standard library encapsulate the basic <code>dict</code> in their implementation, which in turn is built on a hash table.</li>
+</ul>
+<h3 id="what-is-hashable">What Is Hashable</h3>
+<ul>
+<li>An object is hashable if it has a hash code which never changes during its lifetime (it needs a <code>__hash__()</code> method), and can be compared to other objects (it needs an <code>__eq__()</code> method). Hashable objects which compare equal must have the same hash code.<ul>
+<li>Numeric types</li>
+<li>Flat immutable types <code>str</code> and <code>bytes</code></li>
+<li>Container types are hashable if they are immutable and all contained objects are also hashable.</li>
+<li>A <code>frozenset</code> is always hashable, because every element it contains must be hashable.</li>
+</ul>
+</li>
+<li>See <code>ch03/hash-test.py</code></li>
+</ul>
+<pre><code class="language-python">&gt;&gt;&gt; tt = (1, 2, (30, 40))
+&gt;&gt;&gt; hash(tt)
+-3907003130834322577
+&gt;&gt;&gt; tl = (1, 2, [30, 40])
+&gt;&gt;&gt; hash(tl) # doctest: +IGNORE_EXCEPTION_DETAIL
+Traceback (most recent call last):
+TypeError: unhashable type: 'list'
+&gt;&gt;&gt; tf = (1, 2, frozenset([30, 40]))
+&gt;&gt;&gt; hash(tf)
+5149391500123939311
+</code></pre>
+<ul>
+<li>The hash code of an object may be different depending on:<ul>
+<li>version of Python</li>
+<li>the machine architecture</li>
+<li>a salt added to the hash computation for security reasons</li>
+</ul>
+</li>
+<li>The hash code of a correctly implemented object is guaranteed to be constant only within one Python process.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ch-1/" class="btn btn-neutral float-right" title="Chapter -1 Misc Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ch-1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
