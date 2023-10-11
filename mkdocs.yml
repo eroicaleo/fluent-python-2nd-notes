@@ -3,6 +3,7 @@ theme: readthedocs
 
 nav:
   - Home: index.md
+  - Chapter 02 An array of sequences: ch02.md
   - Chapter 03 Dictionaries and Sets: ch03.md
   - Chapter -1 Misc Notes: ch-1.md
 

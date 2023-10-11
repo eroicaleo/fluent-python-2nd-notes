@@ -139,6 +139,13 @@ doctest.testmod(verbose=True)
 * `timeit` module
 * `hash` built-in
 * `dis.dis` to check the byte code
+* Another way to time with `perf_counter` in `time` module
+
+```python
+from time import perf_counter as pc
+t0 = pc(); floats /= 3;
+t_dur = pc() - t0
+```
 
 ## Typo
 
